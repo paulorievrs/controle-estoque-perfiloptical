@@ -2,6 +2,9 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://perfiloptical.com/$1 [R,L]
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Defina o pacote “ea-php73” como a linguagem padrão de programação “PHP”.
@@ -9,7 +12,9 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 	AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
 </IfModule>
 
-<IfModule mod_rewrite.c> 
- RewriteEngine On 
- RewriteRule ^(.*)$ public/$1 [L] 
-</IfModule> 
+<IfModule mod_rewrite.c>
+ RewriteEngine On
+ RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+
