@@ -40,7 +40,7 @@
                 <div class="col-md-12">
                     <div class="card stat-card">
                         <div class="card-body">
-                            <h5 class="card-title">Valor total de compra Beto </h5>
+                            <h5 class="card-title">Valor total de venda Beto </h5>
                             <h2 class="float-right">R$ {{ $valorTotalBeto }}</h2>
                             <p>{{ getBrazilianName((DateTime::createFromFormat('!m', date('m')))->format('F')) }}</p>
                             <div class="progress" style="height: 10px;">
@@ -55,7 +55,7 @@
                 <div class="col-md-12">
                     <div class="card stat-card">
                         <div class="card-body">
-                            <h5 class="card-title">Valor total de compra Lais </h5>
+                            <h5 class="card-title">Valor total de venda Lais </h5>
                             <h2 class="float-right">R$ {{ $valorTotalLais }}</h2>
                             <p>{{ getBrazilianName((DateTime::createFromFormat('!m', date('m')))->format('F')) }}</p>
                             <div class="progress" style="height: 10px;">
