@@ -36,6 +36,36 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Valor total de compra Beto </h5>
+                            <h2 class="float-right">R$ {{ $valorTotalBeto }}</h2>
+                            <p>{{ getBrazilianName((DateTime::createFromFormat('!m', date('m')))->format('F')) }}</p>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ (date('d') * 100) / 30 }}%" aria-valuenow="{{ date('d') }}" aria-valuemin="0" aria-valuemax="31"></div>
+                            </div>
+                            <small>Andamento do mês (dias) </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Valor total de compra Lais </h5>
+                            <h2 class="float-right">R$ {{ $valorTotalLais }}</h2>
+                            <p>{{ getBrazilianName((DateTime::createFromFormat('!m', date('m')))->format('F')) }}</p>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ (date('d') * 100) / 30 }}%" aria-valuenow="{{ date('d') }}" aria-valuemin="0" aria-valuemax="31"></div>
+                            </div>
+                            <small>Andamento do mês (dias) </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="lime-footer">

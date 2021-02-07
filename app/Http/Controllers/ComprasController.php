@@ -111,10 +111,23 @@ class ComprasController extends Controller
 
     public function faturamento()
     {
+
         $valorTotalDB = DB::table('compra')->select('valorFinal')->whereMonth('dataDaCompra', '=', date('m'))->get();
         $valorTotalMes = 0;
         $graphValorPorMes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         $graphVendasPorMes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        $comprasBeto = DB::table('compra')->select('valorFinal')->where('user_id', 1)->whereMonth('dataDaCompra', '=', date('m'))->get();
+        $comprasLais = DB::table('compra')->select('valorFinal')->where('user_id', 2)->whereMonth('dataDaCompra', '=', date('m'))->get();
+
+        $valorTotalBeto = 0;
+        foreach ($comprasBeto as $compra) {
+            $valorTotalBeto += $compra->valorFinal;
+        }
+        $valorTotalLais = 0;
+        foreach ($comprasLais as $compra) {
+            $valorTotalLais += $compra->valorFinal;
+        }
 
         for($i = 1; $i <= 12; $i++) {
             $valorTotalGraph = DB::table('compra')->select('valorFinal')->whereMonth('dataDaCompra', '=', $i)->get();
@@ -130,11 +143,12 @@ class ComprasController extends Controller
 
             $valorTotalMes += $value->valorFinal;
         }
-
         return view('admin.faturamento', [
-            'valorTotalMes' => $valorTotalMes,
-            'graphValorPorMes' => $graphValorPorMes,
-            'graphVendasPorMes' => $graphVendasPorMes
+            'valorTotalMes'     => $valorTotalMes,
+            'graphValorPorMes'  => $graphValorPorMes,
+            'graphVendasPorMes' => $graphVendasPorMes,
+            'valorTotalBeto'    => $valorTotalBeto,
+            'valorTotalLais'    => $valorTotalLais
         ]);
     }
 
