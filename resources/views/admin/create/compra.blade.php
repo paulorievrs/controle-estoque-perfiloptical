@@ -69,8 +69,9 @@
                                     <div class="col-md-12 form-group pb-2">
                                         <select class="selectpicker" data-width="100%" id="users" name="user_id">
                                             <option selected>Quem efetuou a venda?</option>
-                                            <option value="1">Laís</option>
-                                            <option value="2">Helbert</option>
+                                            @foreach($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

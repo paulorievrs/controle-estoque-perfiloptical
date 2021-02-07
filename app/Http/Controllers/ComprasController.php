@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use App\Models\Compra;
 use App\Models\CompraPedido;
 use App\Models\Produto;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,10 +16,12 @@ class ComprasController extends Controller
     {
         $produtos = Produto::all();
         $clientes = Cliente::all();
+        $users    = User::all();
 
         return view('admin.create.compra', [
             'produtos' => $produtos,
-            'clientes' => $clientes
+            'clientes' => $clientes,
+            'users'    => $users
         ]);
     }
 
