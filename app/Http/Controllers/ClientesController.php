@@ -19,6 +19,17 @@ class ClientesController extends Controller
         return view('admin.clientes', [ 'clientes' => $clientes ]);
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->nome;
+        $clientes = DB::table('clientes')
+            ->select('*')
+            ->orderBy('nome')
+            ->where('nome', 'like', '%' . $search . '%')
+            ->paginate(30);
+        return view('admin.clientes', [ 'clientes' => $clientes ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

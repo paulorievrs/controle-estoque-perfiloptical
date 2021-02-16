@@ -16,11 +16,21 @@
                     </div>
                 </div>
             @endif
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Todos os clientes</h5>
+                            <form method="GET" action="/search">
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <input type="text" class="form-control" name="nome" placeholder="Nome para busca" />
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </form>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>

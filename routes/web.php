@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('/admin', [ ComprasController::class, 'getClientesForIndex']);
 
     Route::get('/create-cliente', [ ClientesController::class, 'create' ]);
+    Route::get('/search', [ ClientesController::class, 'search' ]);
     Route::post('/cliente' , [ ClientesController::class, 'store' ]);
     Route::put('/cliente/{id}' , [ ClientesController::class, 'update' ]);
     Route::get('/edit-cliente/{id}' , [ ClientesController::class, 'edit' ]);
