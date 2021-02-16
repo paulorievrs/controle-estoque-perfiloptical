@@ -15,7 +15,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = DB::table('clientes')->select('*')->orderBy('name')->paginate(10);
+        $clientes = DB::table('clientes')->select('*')->orderBy('nome')->paginate(10);
         return view('admin.clientes', [ 'clientes' => $clientes ]);
     }
 
